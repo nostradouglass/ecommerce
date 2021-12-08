@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  front:
+    image: kellydouglass/ecommerce-front
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    depends_on:
+      - back
+    ports:
+      - "3000:3000"
+  back:
+    image: kellydouglass/ecommerce-back
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./backend
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    ports:
+      - "5000:5000"
