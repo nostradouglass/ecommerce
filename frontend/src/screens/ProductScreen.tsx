@@ -33,7 +33,7 @@ function ProductScreen(props: any) {
     return () => {
       //
     };
-  }, [productSaveSuccess]);
+  }, [dispatch, id, productSaveSuccess]);
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();

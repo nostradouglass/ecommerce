@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { addToCart, removeFromCart } from "../actionCreators";
 import { useTypedSelector } from "../hooks/useTypedSelector";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useParams, useLocation } from "react-router-dom";
 
 function CartScreen(props: any) {
@@ -21,11 +21,11 @@ function CartScreen(props: any) {
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
-  }, []);
+  }, [dispatch, productId, qty]);
 
-  const checkoutHandler = () => {
-    props.history.push("/signin?redirect=shipping");
-  };
+  // const checkoutHandler = () => {
+  //   props.history.push("/signin?redirect=shipping");
+  // };
 
   const cartArea = () => {
 

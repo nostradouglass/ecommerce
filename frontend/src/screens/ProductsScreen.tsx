@@ -18,7 +18,7 @@ function ProductsScreen(props: any) {
   const [description, setDescription] = useState('');
   const [uploading, setUploading] = useState(false);
   const productList = useTypedSelector((state: any) => state.productList);
-  const { loading, products, error } = productList;
+  const {  products } = productList;
 
   const productSave = useTypedSelector((state: any) => state.productSave);
   const {
@@ -29,9 +29,9 @@ function ProductsScreen(props: any) {
 
   const productDelete = useTypedSelector((state: any) => state.productDelete);
   const {
-    loading: loadingDelete,
+    
     success: successDelete,
-    error: errorDelete,
+   
   } = productDelete;
   const dispatch = useDispatch();
 

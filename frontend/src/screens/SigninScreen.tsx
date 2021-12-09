@@ -23,7 +23,7 @@ function SigninScreen(props: any) {
     return () => {
       //
     };
-  }, [userInfo]);
+  }, [userInfo, navigate]);
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();

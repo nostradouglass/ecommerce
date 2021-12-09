@@ -24,7 +24,7 @@ function RegisterScreen(props: any) {
     return () => {
       //
     };
-  }, [userInfo]);
+  }, [navigate, userInfo]);
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,12 +56,12 @@ function RegisterScreen(props: any) {
         </li>
         <li>
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
+          <input value={password} type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}>
           </input>
         </li>
         <li>
           <label htmlFor="rePassword">Re-Enter Password</label>
-          <input type="password" id="rePassword" name="rePassword" onChange={(e) => setRePassword(e.target.value)}>
+          <input value={rePassword} type="password" id="rePassword" name="rePassword" onChange={(e) => setRePassword(e.target.value)}>
           </input>
         </li>
         <li>
