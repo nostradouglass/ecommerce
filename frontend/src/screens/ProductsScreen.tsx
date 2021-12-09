@@ -43,10 +43,17 @@ function ProductsScreen(props: any) {
     return () => {
       //
     };
-  }, [successSave, successDelete]);
+  }, [successSave, successDelete, dispatch]);
 
-  const openModal = (product: any) => {
+  const openModal = (product: any ) => {
     setModalVisible(true);
+    
+    // If product is empty then new product and can not pull data from existing db product
+    // should not set the values on modal open (create Product button pressed)
+    
+    // If editing existing product the product object will not be empty 
+    // and set the values from the db info of the object (edit button pressed) 
+    if (Object.keys(product).length !== 0 ) {
     setId(product._id);
     setName(product.name);
     setPrice(product.price);
@@ -55,6 +62,7 @@ function ProductsScreen(props: any) {
     setBrand(product.brand);
     setCategory(product.category);
     setCountInStock(product.countInStock);
+    }
   };
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();

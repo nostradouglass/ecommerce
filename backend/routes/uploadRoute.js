@@ -6,7 +6,7 @@ const config = require( '../config');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, '/uploads/');
+    cb(null, './uploads/');
   },
   filename(req, file, cb) {
     cb(null, `${Date.now()}.jpg`);
@@ -18,9 +18,13 @@ const upload = multer({ storage });
 const router = express.Router();
 
 router.post('/', upload.single('image'), (req, res) => {
-  console.log("fire")
   res.send(`/${req.file.path}`);
 });
+
+
+
+
+
 
 aws.config.update({
   accessKeyId: config.accessKeyId,

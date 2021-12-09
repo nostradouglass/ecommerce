@@ -90,6 +90,7 @@ router.delete('/:id', isAuth, isAdmin, async (req, res) => {
   }
 });
 
+
 router.post('/', isAuth, isAdmin, async (req, res) => {
   const product = new Product({
     name: req.body.name,
@@ -102,6 +103,7 @@ router.post('/', isAuth, isAdmin, async (req, res) => {
     rating: req.body.rating,
     numReviews: req.body.numReviews,
   });
+  
   const newProduct = await product.save();
   if (newProduct) {
     return res
@@ -109,6 +111,7 @@ router.post('/', isAuth, isAdmin, async (req, res) => {
       .send({ message: 'New Product Created', data: newProduct });
   }
   return res.status(500).send({ message: ' Error in Creating Product.' });
+ 
 });
 
 module.exports = router;
