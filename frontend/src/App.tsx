@@ -10,10 +10,6 @@ import ProductsScreen from "./screens/ProductsScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import SigninScreen from "./screens/SigninScreen";
 
-interface MatchParams {
-  name: string;
-}
-
 
 function App() {
   const userSignin = useTypedSelector((state: any) => state.userSignin);
@@ -43,7 +39,7 @@ function App() {
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
-                <a href="#">Admin</a>
+                <a href="/">Admin</a>
                 <ul className="dropdown-content">
                   <li>
                     <Link to="/orders">Orders</Link>
